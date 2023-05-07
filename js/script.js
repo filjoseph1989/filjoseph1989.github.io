@@ -1,19 +1,21 @@
 NUM_ATTRACTORS = 10;
+
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const { innerWidth, innerHeight } = window;
 const { random, floor, cos, sin } = Math;
+
 canvas.width = innerWidth;
 canvas.height = document.body.scrollHeight;
-const w = innerWidth / 2;
-const h = innerHeight / 2;
+
+const w = innerWidth;
+const h = innerHeight;
 
 ctx.translate(w, h);
 ctx.globalCompositeOperation = "lighter";
-const range = n =>
-Array(n)
-.fill(0)
-.map((_, i) => i);
+
+const range = n => Array(n).fill(0).map((_, i) => i);
+
 const randomInt = (s, e) => s + floor((e - s) * random());
 const drawParticle = ({ x, y, c }) => {
     ctx.beginPath();
