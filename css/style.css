@@ -614,6 +614,7 @@ body {
             text-align: left;
             & > small:first-child {
                 font-weight: 600;
+                margin-right: 5px;
             }
 
             & > small {
@@ -659,6 +660,14 @@ body {
             li {
                 margin-bottom: 5px;
             }
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+            background-image: linear-gradient(to right, red, orange);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     }
 }
@@ -715,4 +724,42 @@ body {
 
 .social-links a i {
     font-size: 1.5rem;
+}
+
+@media (max-width: 320px) {
+    .card.hero {
+        width: 248px;
+
+        & > .visual-h {
+            height: 240px;
+            transition: height 0.5s ease-in-out;
+        }
+        & > .visual {
+            position: relative;
+            overflow: hidden;
+
+            img { width: 100%; }
+
+            & > div {
+                background-color: white;
+                height: 50px;
+                position: absolute;
+                bottom: 0px;
+                width: 100%;
+                opacity: 0.8;
+
+                & > div {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-content: center;
+                    justify-content: center;
+                    height: 100%;
+                }
+
+                button {
+                    margin: auto;
+                }
+            }
+        }
+    }
 }

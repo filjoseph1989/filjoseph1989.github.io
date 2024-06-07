@@ -17,10 +17,16 @@
                 <h2 id="profile-header-primary" class="merriweather-bold">Welcome to my page</h2>
             </header>
             <div href="#" class="card hero">
-                <div class="visual">
+                <div id="hero-card" class="visual visual-h">
                     <picture>
                         <img class="slide_image" src="https://i.imgur.com/dANb72v.jpg" alt="Fils Image" loading="lazy">
                     </picture>
+                    <div class="button-container" id="button-container">
+                        <div id="picture-reveal">
+                            <i class="fa-solid fa-chevron-down fa-2xl"></i>
+                            <i class="fa-solid fa-chevron-up fa-2xl" style="display:none;"></i>
+                        </div>
+                    </div>
                 </div>
                 <div class="content">
                     <small class="merriweather-light">FEATURED STORY</small>
@@ -442,6 +448,24 @@
 
         // Initial slide display
         goToSlide(currentSlide);
+
+        const pictureRevealDown = document.querySelector('#picture-reveal > .fa-chevron-down');
+        const pictureRevealUp = document.querySelector('#picture-reveal > .fa-chevron-up');
+        const buttonContainer = document.querySelector('#button-container');
+        const heroCard = document.querySelector('#hero-card');
+
+        const toggleHeroCard = () => {
+            heroCard.classList.toggle('visual-h');
+            buttonContainer.style.transition = buttonContainer.style.bottom == '' ? 'bottom 0.5s ease' : '';
+            buttonContainer.style.bottom = buttonContainer.style.bottom ? '' : '40px';
+            pictureRevealDown.style.display = pictureRevealDown.style.display === 'none' ? 'block' : 'none';
+            pictureRevealDown.style.transition = 'display 0.5s ease';
+            pictureRevealUp.style.display = pictureRevealUp.style.display === 'block' ? 'none' : 'block';
+            pictureRevealUp.style.transition = 'display 0.5s ease';
+        };
+
+        pictureRevealDown.addEventListener('click', toggleHeroCard);
+        pictureRevealUp.addEventListener('click', toggleHeroCard);
     </script>
 </body>
 </html>
