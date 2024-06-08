@@ -126,9 +126,13 @@ body {
         align-items: flex-start;
         margin-left: 0;
 
-        div {
-            padding-right: 20px;
+        @media (min-width: 335px) {
+            & > div {
+                padding-right: 20px;
+            }
+        }
 
+        div {
             #profile-header-container {
                 position: relative;
                 width: 210px;
@@ -726,10 +730,8 @@ body {
     font-size: 1.5rem;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 425px) {
     .card.hero {
-        width: 248px;
-
         & > .visual-h {
             height: 240px;
             transition: height 0.5s ease-in-out;
@@ -740,7 +742,7 @@ body {
 
             img { width: 100%; }
 
-            & > div {
+            #button-container {
                 background-color: white;
                 height: 50px;
                 position: absolute;
@@ -761,5 +763,11 @@ body {
                 }
             }
         }
+    }
+}
+
+@media (min-width: 426px) {
+    #button-container {
+        display: none;
     }
 }
