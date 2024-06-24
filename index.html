@@ -62,9 +62,8 @@
                                 <h1 class="merriweather-black particletext bubbles" id="profile-header"> Hi, I'm Fil Elman </h1>
                             </div>
                             <p class="merriweather-light">
-                                With a <span>decade</span> of experience in web development, I'm passionate about programming. I love exploring the latest web
-                                technologies. Right now, I'm on a quest to learn more about building amazing websites and web apps through personal
-                                projects.
+                                With a <span>decade</span> of experience in web development, I'm passionate about programming.
+                                <span id="about-text">I love exploring the latest web technologies. Right now, I'm on a quest to learn more about building amazing websites and web apps through personal projects</span>.
                             </p>
                             <p class="merriweather-light" id="business-logic">
                                 My work primarily involves handling business logic in the backend using PHP (native, Laravel, CodeIgniter, WordPress) and JavaScript (e.g., ReactJS, NodeJS).
@@ -107,14 +106,54 @@
                     </div>
                     <div class="gallery-container">
                         <article class="gallery" id="gallery-article">
-                            <img src="https://i.imgur.com/iusc9qr.jpg" alt="Passion for learning" data-explain="I am passionate about learning and strive to understand new concepts"/>
-                            <img src="https://i.imgur.com/1MOopVO.jpg" alt="Problem Solving Skills" data-explain="I have a strong problem-solving skillset, and I enjoy breaking down complex problems into manageable parts"/>
-                            <img src="https://i.imgur.com/AH60lhY.jpg" alt="Creativity" data-explain="I am creative and enjoy generating new ideas and solving problems from different perspectives"/>
-                            <img src="https://i.imgur.com/WF1bQUg.jpg" alt="Communication skills" data-explain="I am skilled at communicating effectively, both verbally and in writing"/>
-                            <img src="https://i.imgur.com/GrwN3cM.jpg" alt="Teamwork" data-explain="I am a team player and enjoy working collaboratively with others to achieve common goals"/>
-                            <img src="https://i.imgur.com/3AFlHxM.jpg" alt="Attention to details" data-explain="I am meticulous and pay close attention to details, ensuring the best possible results"/>
-                            <img src="https://i.imgur.com/A80KDhK.jpg" alt="Persistence" data-explain="I am determined and persistent, and I am willing to put in the effort required to achieve my goals"/>
-                            <img src="https://i.imgur.com/lzLAHRt.jpg" alt="Adaptability" data-explain="I am adaptable and able to adjust quickly to new situations and challenges"/>
+                            <div>
+                                <img src="https://i.imgur.com/iusc9qr.jpg" alt="Passion for learning" data-explain="I am passionate about learning and strive to understand new concepts"/>
+                                <div>
+                                    <p>Passion for learning</p>
+                                </div>
+                            </div>
+                            <div>
+                                <img src="https://i.imgur.com/1MOopVO.jpg" alt="Problem Solving Skills" data-explain="I have a strong problem-solving skillset, and I enjoy breaking down complex problems into manageable parts"/>
+                                <div>
+                                    <p>Problem Solving Skills</p>
+                                </div>
+                            </div>
+                            <div>
+                                <img src="https://i.imgur.com/AH60lhY.jpg" alt="Creativity" data-explain="I am creative and enjoy generating new ideas and solving problems from different perspectives"/>
+                                <div>
+                                    <p>Creativity</p>
+                                </div>
+                            </div>
+                            <div>
+                                <img src="https://i.imgur.com/WF1bQUg.jpg" alt="Communication skills" data-explain="I am skilled at communicating effectively, both verbally and in writing"/>
+                                <div>
+                                    <p>Communication skills</p>
+                                </div>
+                            </div>
+                            <div>
+                                <img src="https://i.imgur.com/GrwN3cM.jpg" alt="Teamwork" data-explain="I am a team player and enjoy working collaboratively with others to achieve common goals"/>
+                                <div>
+                                    <p>Teamwork</p>
+                                </div>
+                            </div>
+                            <div>
+                                <img src="https://i.imgur.com/3AFlHxM.jpg" alt="Attention to details" data-explain="I am meticulous and pay close attention to details, ensuring the best possible results"/>
+                                <div>
+                                    <p>Attention to details</p>
+                                </div>
+                            </div>
+                            <div>
+                                <img src="https://i.imgur.com/A80KDhK.jpg" alt="Persistence" data-explain="I am determined and persistent, and I am willing to put in the effort required to achieve my goals"/>
+                                <div>
+                                    <p>Persistence</p>
+                                </div>
+                            </div>
+                            <div>
+                                <img src="https://i.imgur.com/lzLAHRt.jpg" alt="Adaptability" data-explain="I am adaptable and able to adjust quickly to new situations and challenges"/>
+                                <div>
+                                    <p>Adaptability</p>
+                                </div>
+                            </div>
                         </article>
                     </div>
                     <div id="gallery" class="quote-box">
@@ -505,6 +544,31 @@
 
         pictureRevealDown.addEventListener('click', toggleHeroCard);
         pictureRevealUp.addEventListener('click', toggleHeroCard);
+
+        const textElement = document.querySelector('#profile-header-primary');
+        const text = textElement.textContent;
+        let currentChar = 0;
+
+        function typeWriter() {
+            if (currentChar <= text.length) {
+                textElement.textContent = text.slice(0, currentChar);
+                currentChar++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+
+        typeWriter();
+
+        const directChildren = Array.from(document.querySelector('#gallery-article').children);
+        directChildren.forEach(child => {
+            const directChildChildren = Array.from(child.children);
+            child.addEventListener('mouseover', () => {
+                directChildChildren[1].style.bottom = '0px';
+            })
+            child.addEventListener('mouseout', () => {
+                directChildChildren[1].style.bottom = '-200px';
+            })
+        });
     </script>
 </body>
 </html>
