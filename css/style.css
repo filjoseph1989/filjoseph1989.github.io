@@ -154,7 +154,8 @@ body {
 
             }
 
-            & > p:nth-child(2) > span {
+            & > p:nth-child(2) > span:first-child {
+                cursor: pointer;
                 font-weight: bold;
                 background-image: linear-gradient(to right, #ff0000, #fb1e1e);
                     -webkit-background-clip: text;
@@ -268,7 +269,8 @@ body {
         filter: brightness(0.5) contrast(0.5);
     }
 
-    & img {
+    & img,
+    & > div {
         object-fit: cover;
         width: calc(var(--size) * 2);
         height: calc(var(--size) * 2);
@@ -286,12 +288,39 @@ body {
             clip-path: path("M0,0 C0,0 200,0 200,0 200,0 200,100 200,100 200,100 200,200 200,200 200,200 100,200 100,200 100,200 100,200 0,200 0,200 0,100 0,100 0,100 0,100 0,100Z");
             z-index: 1;
             transition: clip-path 0.25s, filter 0.25s;
+            cursor: pointer;
         }
 
         &:focus {
             outline: 1px dashed black;
             outline-offset: -5px;
         }
+    }
+
+    & img {
+        clip-path: path("M0,0 C0,0 200,0 200,0 200,0 200,100 200,100 200,100 200,200 200,200 200,200 100,200 100,200 100,200 100,200 0,200 0,200 0,100 0,100 0,100 0,100 0,100Z");
+    }
+
+    & > div {
+        position: relative;
+        overflow: hidden;
+
+        & > div {
+            position: absolute;
+            bottom: -200px;
+            z-index: 2;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            height: inherit;
+            width: inherit;
+            text-align: center;
+            transition: bottom 0.5s ease-in-out;
+            color: white;
+            background-color: #00000063;
+        }
+
     }
 }
 
