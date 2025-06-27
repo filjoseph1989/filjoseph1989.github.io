@@ -4,9 +4,7 @@
 	URL: https://gettemplates.co
 -->
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Fil Joseph Elman - Portfolio Website</title>
@@ -25,7 +23,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.min.css">
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-    <link href="https://file.myfontastic.com/7vRKgqrN3iFEnLHuqYhYuL/icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://file.myfontastic.com/7vRKgqrN3iFEnLHuqYhYuL/icons.css">
 
     <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
@@ -58,8 +56,6 @@
         </div>
 
         <section id="gtco-section-featurettes" class="featurettes bg-white">
-
-
             <div class="container">
                 <div class="section-content">
                     <div class="row">
@@ -237,7 +233,7 @@
             <div class="inner container">
                 <div class="row">
                     <div class="col-md-6 d-flex align-items-center justify-content-md-start justify-content-center">
-                        <p class="mb-0">&copy; 2024. All Right Reserved. </p>
+                        <p class="mb-0">&copy; <span id="copyright-year">2024</span>. All Right Reserved. </p>
                     </div>
 
                     <div class="col-md-6">
@@ -269,25 +265,22 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
     <script src="vendor/bootstrap/popper.min.js"></script>
     <script src="vendor/bootstrap/bootstrap.min.js"></script>
-    <script src="vendor/select2/select2.min.js "></script>
+    <script src="vendor/select2/select2.min.js"></script>
     <script src="vendor/owlcarousel/owl.carousel.min.js"></script>
     <script src="vendor/isotope/isotope.min.js"></script>
     <script src="vendor/lightcase/lightcase.js"></script>
     <script src="vendor/waypoints/waypoint.min.js"></script>
     <script src="vendor/countTo/jquery.countTo.js"></script>
 
-    <script src="js/app.min.js "></script>
+    <script src="js/app.min.js"></script>
     <script>
         const reveal = document.getElementById('reveal-button');
-        console.log(reveal);
-
         reveal.addEventListener('click', function () {
             const moreContent = document.getElementById('more-content');
-            console.log(moreContent);
-
             moreContent.style.display = 'block';
             this.style.display = 'none';
         })
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
     </script>
 </body>
 
